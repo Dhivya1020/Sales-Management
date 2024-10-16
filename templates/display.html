@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block extra_css %}
+a{
+        text-decoration:none;
+        color:white
+  }
+    .button{
+        display:inline-block;
+        padding: 10px 10px;
+        cursor:pointer;
+        text-align:center;
+        outline:none;
+        color:yellow;
+        background-color:green;
+        border:none;
+        border-radius:10px;
+        box-shadow:0 0 10px red;
+        }
+{% endblock %}
+{% block content %}
+
+<h1> Welcome to Display Student Page</h1>
+<table  class="table table-striped">
+  <thead>
+    <tr>
+        {% if salesperson %}
+      <th scope="col">Sales Person name</th>
+        {% endif %}
+      <th scope="col">Date of Joining</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Email</th>
+      <th scope="col">Education</th>
+      <th scope="col">Skills</th>
+        {% if update %}
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+        {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students %}
+  <tr>
+         {% if salesperson %}
+      <td> {{ student.sales_person }}</td>
+         {% endif %}
+      <td> {{ student.joiningdate }}</td>
+      <td> {{ student.name }}</td>
+      <td> {{ student.age }}</td>
+      <td> {{ student.mobile }}</td>
+      <td> {{ student.email }}</td>
+      <td> {{ student.education }}</td>
+      <td> {{ student.skills }}</td>
+{% if update %}
+       <td><a href="{% url 'update' student.id %}" class="button">update</a></td>
+       <td><a href="{% url 'delete' student.id %}" class="button" style="background-color:red">delete</a></td>
+      {% endif %}
+  </tr>
+  {% empty %}
+  <tr>
+      <td>no students data available</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

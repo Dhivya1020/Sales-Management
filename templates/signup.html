@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+body {
+  background: blue !important;
+  font-family: 'Multi', sans-serif;
+}
+h1 {
+  color: #fff;
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+a {
+  color: #333;
+}
+a:hover {
+  color: #E8D426;
+  text-decoration: none;
+}
+.form-control:focus {
+    color: #000;
+    background-color: #fff;
+    border: 2px solid #E8D426;
+    outline: 0;
+    box-shadow: none;
+}
+.btn {
+  background: blue;
+  border: #E8D426;
+}
+.btn:hover {
+  background: blue;
+  border: #E8D426;
+}
+</style>
+</head>
+<body>
+<!--<h1> Welcome to Signup page </h1>-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--Name:<input type="text" name="txtname1"><br>-->
+<!--Email:<input type="email" name="txtemail"><br>-->
+<!--Password:<input type="password" name="txtpassword1"><br>-->
+<!--<input type="submit" value="Sign Up">-->
+<!--    {% if msg %}-->
+<!--    <h3 style="color:red"> username or email exist</h3>-->
+<!--    {% endif %}-->
+<!--Exist User<a href="/"> Logib</a>-->
+<!--</form>-->
+<div class="pt-5">
+  <h1 class="text-center"> Sign Up page </h1>
+<div class="container">
+                <div class="row">
+                    <div class="col-md-5 mx-auto">
+                        <div class="card card-body">
+                      <form id="submitForm"  method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1">
+                            {% csrf_token %}
+                          <input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+                   <div class="form-group required">
+              <label for="username"> Enter your Name  </label>
+             <input type="text" class="form-control text-lowercase" id="username" required="" name="txtname1" value="">
+               </div>
+                           <div class="form-group required">
+              <label for="username"> Enter your  Email </label>
+             <input type="email" class="form-control text-lowercase" id="userid" required="" name="txtemail" value="">
+               </div>
+       <div class="form-group required">
+    <label class="d-flex flex-row align-items-center" for="password"> Enter your Password
+<input type="password" class="form-control" required="" id="password" name="txtpassword1" value="">
+       </div>
+     <div class="form-group mt-4 mb-4">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
+                </div>
+              </div>
+                           {% if msg %}
+                            <h3 style="color:red"> username or email exist</h3>
+                            {% endif %}
+         <div class="form-group pt-1">
+      <button class="btn btn-primary btn-block" type="submit"> Log In </button>
+                  </div>
+               </form>
+             <p class="small-xl pt-3 text-center">
+       <span class="text-muted"> Not a member? </span>
+        <a href="/"> Login </a>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+</body>
+</html>
